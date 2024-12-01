@@ -5,8 +5,9 @@ import cv2
 
 VIDEOS_DIR = os.path.join('.', 'videos')
 
-video_path = os.path.join(VIDEOS_DIR, 'truck1.mp4')
-video_path_out = '{}_out.mp4'.format(video_path)
+file_name='truck1'
+video_path = os.path.join(VIDEOS_DIR, '{}.mp4'.format(file_name))
+video_path_out = VIDEOS_DIR = os.path.join(VIDEOS_DIR, '{}_out.mp4'.format(file_name) )
 
 cap = cv2.VideoCapture(video_path)
 ret, frame = cap.read()
