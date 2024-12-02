@@ -3,7 +3,7 @@ import zipfile
 
 # use recursive function.
 def extracted_and_delete_zip_file(superfolder_path: str ={}) -> None:
-    # serching event.text directory
+    # serching zip directory
     for folder in os.listdir(superfolder_path):
         if ".zip" in folder:
             with zipfile.ZipFile(os.path.join(superfolder_path,folder), 'r') as zip_ref:
