@@ -5,8 +5,8 @@ import cv2
 
 VIDEOS_DIR = os.path.join('.', 'test_image')
 
-image_path = os.path.join('data', 'images', 'train')
-image_path_out = os.path.join(VIDEOS_DIR, 'result')
+image_path = os.path.join(VIDEOS_DIR, 'test2')
+image_path_out = os.path.join(VIDEOS_DIR, 'result2')
 
 model_path = os.path.join('.', 'runs', 'detect', 'train', 'weights', 'last.pt')
 
@@ -40,7 +40,7 @@ for file_name in os.listdir(image_path):
 
                 # Add label
                 label = f"{results.names[int(class_id)].upper()} {score:.2f}"
-                cv2.putText(image, label, (int(x1), int(y1) - 10), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 255, 0), 2)
+                cv2.putText(image, label, (int(x1), int(y2) - 10), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 255, 0), 2)
 
         # Save the resulting image to the output folder
         base_name, ext = os.path.splitext(file_name)
