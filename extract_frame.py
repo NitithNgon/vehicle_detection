@@ -1,7 +1,7 @@
 import cv2
 import os
 import math
-OUTPUT_FOLDER = './raw_data_set_2_from_video'
+OUTPUT_FOLDER = './raw_data_set_from_video'
 
 def extract_frames(video_path , interval=1):
     # Create output folder if it doesn't exist
