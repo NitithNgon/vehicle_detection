@@ -12,8 +12,8 @@ def extracted_and_delete_zip_file(superfolder_path: str ={}) -> None:
             os.remove(os.path.join(superfolder_path,folder))   
     return None
 
-#     extracted_and_delete_zip_file(os.path.join(SUPER_FOLDER, i))
+# extracted_and_delete_zip_file('./raw_data_each_site')
 
-# SUPER_FOLDER ="./raw_data_set_00/00-2024-12/2024-12"
-# for i in os.listdir(SUPER_FOLDER):
-#     extracted_and_delete_zip_file(os.path.join(SUPER_FOLDER, i))
+SUPER_FOLDER ="./raw_data_each_site/01"
+for i in os.listdir(SUPER_FOLDER):
+    extracted_and_delete_zip_file(os.path.join(SUPER_FOLDER, i))
