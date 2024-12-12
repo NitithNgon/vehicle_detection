@@ -3,7 +3,7 @@ import os
 import shutil
 
 # Configuration
-SUPER_FOLDER ='./data_01'
+SUPER_FOLDER ='./data_02'
 IMAGES_DIR = os.path.join(SUPER_FOLDER,'./images/train')  # Path to folder with images
 OUTPUT_DIR = os.path.join(SUPER_FOLDER,'./labels/train')  # Path to save label files
 IMAGES_VAL_DIR = os.path.join(SUPER_FOLDER,'./images/val')  # Path to folder with images
