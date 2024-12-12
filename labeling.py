@@ -1,10 +1,12 @@
 import cv2
 import os
+import shutil
 
 # Configuration
-SUPER_FOLDER ='./data_00'
+SUPER_FOLDER ='./data_01'
 IMAGES_DIR = os.path.join(SUPER_FOLDER,'./images/train')  # Path to folder with images
 OUTPUT_DIR = os.path.join(SUPER_FOLDER,'./labels/train')  # Path to save label files
+IMAGES_VAL_DIR = os.path.join(SUPER_FOLDER,'./images/val')  # Path to folder with images
 CLASS_NAMES = [
     'truck',
 ]
@@ -40,10 +42,17 @@ def draw_bbox(event, x, y, flags, param):
 for file_name in os.listdir(IMAGES_DIR):
     if not file_name.endswith(('.jpg', '.png', '.jpeg')):
         continue
-    if os.path.splitext(file_name)[0]+".txt" in os.listdir(OUTPUT_DIR):
-        continue
     
     image_path = os.path.join(IMAGES_DIR, file_name)
+    if os.path.splitext(file_name)[0]+".txt" in os.listdir(OUTPUT_DIR):
+        continue
+
+    # !remove when label val images
+    elif len(os.listdir(OUTPUT_DIR))>1000:
+        shutil.move(image_path, IMAGES_VAL_DIR)
+        print(f"File {file_name} moved to {IMAGES_VAL_DIR}")
+        continue
+
     img = cv2.imread(image_path)
     h, w, _ = img.shape
     bboxes = []
